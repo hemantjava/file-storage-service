@@ -1,0 +1,15 @@
+cloud:
+  aws:
+    credentials:
+      access-key: empty
+      secret-key: empty
+    region:
+      static: ap-south-1
+    stack:
+      auto: false
+application:
+  bucket:
+    name: sample-textextract
+
+server:
+  port: 9090
