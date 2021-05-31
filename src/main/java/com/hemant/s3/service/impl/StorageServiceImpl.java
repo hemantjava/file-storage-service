@@ -50,8 +50,15 @@ public class StorageServiceImpl implements StorageService {
 
     @Override
     public String deleteFile(String fileName) {
-        s3Client.deleteObject(bucketName, fileName);
-        return fileName + " removed ...";
+        if(bucketName.equalsIgnoreCase(fileName)) {
+            S3Object s3Object = s3Client.getObject(bucketName, fileName);
+
+            s3Client.deleteObject(bucketName, fileName);
+            log.info("bucketName has deleted ...");
+            return fileName + " removed ...";
+        }
+        log.debug("Invalid filename or file doesn't exist");
+        return "Invalid filename or file doesn't exist";
     }
 
 

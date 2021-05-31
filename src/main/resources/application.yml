@@ -13,3 +13,10 @@ application:
 
 server:
   port: 9090
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2MB
+      max-file-size: 5MB
+      max-request-size: 10MB
